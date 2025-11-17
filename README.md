@@ -52,6 +52,47 @@ Collection of custom scikit-learn compatible transformers for feature engineerin
 - Concatenates results from both classes
 - **Parameters**: `n_components=None`
 
+### Mathematical & Statistical Transformers
+
+#### `StationarityTransformer`
+**Purpose**: Converts non-stationary time series to stationary
+- Automatic stationarity detection using ADF test
+- Multiple transformation methods: diff, pct_change, log, log_diff
+- **Parameters**: `method='diff'`, `adf_threshold=0.05`
+
+#### `StatisticalFeatureGenerator`
+**Purpose**: Generates comprehensive statistical features
+- Rolling statistics (mean, std, min, max, median)
+- Advanced metrics (skewness, kurtosis, quantiles, z-scores)
+- **Parameters**: `window_sizes=[5,10,20,50]`, `include_advanced=True`
+
+### Rolling Advanced Transformers
+
+#### `RollingFourierTransformer`
+**Purpose**: Frequency analysis on rolling windows
+- Rolling FFT for time-varying frequency content
+- Adaptive frequency feature extraction
+- **Parameters**: `window_size=100`, `n_components=3`, `step_size=1`
+
+#### `RollingWaveletTransformer`
+**Purpose**: Multi-resolution analysis on rolling windows
+- Time-localized frequency decomposition
+- Adaptive wavelet coefficients
+- **Parameters**: `window_size=64`, `wavelet='db4'`, `level=2`
+
+#### `RollingEntropyCalculator`
+**Purpose**: Dynamic complexity measurement
+- Rolling entropy for changing market regimes
+- Time-varying predictability analysis
+- **Parameters**: `window_size=100`, `step_size=10`
+
+#### `MultiScaleFeatureGenerator`
+**Purpose**: Multi-timeframe statistical features
+- Different window sizes for multi-scale analysis
+- Scale ratios and comparative statistics
+- **Parameters**: `window_scales=[10,30,60,120]`, `features=['mean','std','min','max','range']`
+
+
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
